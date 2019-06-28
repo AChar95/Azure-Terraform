@@ -138,7 +138,7 @@ resource "azurerm_virtual_machine" "jenkins" {
     disable_password_authentication = true
     ssh_keys {
       path     = "/home/jenkins/.ssh/authorized_keys"
-      key_data = "${file("/home/al/.ssh/id_rsa.pub")}"
+      key_data = "${file("/home/allan/.ssh/id_rsa.pub")}"
     }
   }
   tags = {
@@ -149,7 +149,7 @@ resource "azurerm_virtual_machine" "jenkins" {
     connection {
       type        = "ssh"
       user        = "jenkins"
-      private_key = "${file("/home/al/.ssh/id_rsa")}"
+      private_key = "${file("/home/allan/.ssh/id_rsa")}"
       host        = "${azurerm_public_ip.jenkins.fqdn}"
     }
   }
@@ -183,7 +183,7 @@ resource "azurerm_virtual_machine" "wildfly" {
     disable_password_authentication = true
     ssh_keys {
       path     = "/home/wildfly/.ssh/authorized_keys"
-      key_data = "${file("/home/al/.ssh/id_rsa.pub")}"
+      key_data = "${file("/home/allan/.ssh/id_rsa.pub")}"
     }
   }
   tags = {
@@ -194,7 +194,7 @@ resource "azurerm_virtual_machine" "wildfly" {
     connection {
       type        = "ssh"
       user        = "wildfly"
-      private_key = "${file("/home/al/.ssh/id_rsa")}"
+      private_key = "${file("/home/allan/.ssh/id_rsa")}"
       host        = "${azurerm_public_ip.wildfly.fqdn}"
     }
   }
